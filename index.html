@@ -6,13 +6,38 @@
     <title>Random Question Generator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         #question {
             font-size: 24px;
+            color: #333;
             margin-bottom: 20px;
+            padding: 20px;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            background-color: #e7f7e7;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -22,16 +47,17 @@
 
     <script>
         const questions = [
-            "What's your favorite movie?",
-            "If you could travel anywhere, where would you go?",
-            "What's your favorite food?",
-            "What's your biggest fear?",
-            "What's your dream job?",
-            "If you could meet anyone, dead or alive, who would it be?",
-            "What's your favorite book?",
-            "What's your favorite hobby?",
-            "What's the best advice you've ever received?",
-            "If you could have any superpower, what would it be?"
+            "Repeat Tongue twister",
+            "Make us laugh with a Joke",
+           " Sing a song",
+           " Tell us a proverb",
+            "Numbers in reverse 100 -1",
+            "Speak in telugu for 1 minute",
+           " Any telugu padyam",
+            "podupu katha",
+            "Impersonations and others should guess",
+            "Tell us a ghost story",
+            "Blindfolded taste test"
         ];
 
         function generateQuestion() {
