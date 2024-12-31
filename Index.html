@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Question Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="question">Click the button to get a random question!</div>
+    <button onclick="generateQuestion()">Get Question</button>
+
+    <script>
+        const questions = [
+            "What's your favorite movie?",
+            "If you could travel anywhere, where would you go?",
+            "What's your favorite food?",
+            "What's your biggest fear?",
+            "What's your dream job?",
+            "If you could meet anyone, dead or alive, who would it be?",
+            "What's your favorite book?",
+            "What's your favorite hobby?",
+            "What's the best advice you've ever received?",
+            "If you could have any superpower, what would it be?"
+        ];
+
+        function generateQuestion() {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            const randomQuestion = questions[randomIndex];
+            document.getElementById("question").innerText = randomQuestion;
+        }
+    </script>
+</body>
+</html>
