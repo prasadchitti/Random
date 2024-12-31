@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Task Generator</title>
+    <title>Random Question Generator</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -36,24 +36,29 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+        button:disabled {
+            background-color: #9e9e9e;
+            cursor: not-allowed;
+        }
+        button:hover:enabled {
             background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div id="question">Click the button to get a random question!</div>
-    <button onclick="generateQuestion()">Get Me Task</button>
+    <button id="questionButton" onclick="generateQuestion()">Get Question</button>
+    <div id="timer" style="margin-top: 20px; font-size: 20px;"></div>
 
     <script>
         const questions = [
-            "Repeat a Tongue twister",
+             "Repeat a Tongue twister",
             "Make us laugh with a Joke",
-           " Sing a song",
-           " Tell us a proverb",
+            "Sing a song",
+            "Tell us a proverb",
             "Count the numbers in reverse 100 -1, if wrong, start again.",
             "Speak in telugu for 1 minute on any topic",
-           " Any telugu padyam",
+            "Any telugu padyam",
             "Ask us a Podupu katha",
             "Impersonations - Mimic and others should guess",
             "Tell us a ghost story",
@@ -64,6 +69,26 @@
             const randomIndex = Math.floor(Math.random() * questions.length);
             const randomQuestion = questions[randomIndex];
             document.getElementById("question").innerText = randomQuestion;
+
+            // Disable the button
+            const button = document.getElementById("questionButton");
+            button.disabled = true;
+
+            // Start the timer
+            let timeLeft = 30;
+            const timerElement = document.getElementById("timer");
+            timerElement.innerText = `Next question in ${timeLeft} seconds`;
+
+            const countdown = setInterval(() => {
+                timeLeft--;
+                timerElement.innerText = `Next question in ${timeLeft} seconds`;
+
+                if (timeLeft === 0) {
+                    clearInterval(countdown);
+                    timerElement.innerText = '';
+                    button.disabled = false;
+                }
+            }, 1000);
         }
     </script>
 </body>
